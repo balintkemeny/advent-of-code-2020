@@ -31,7 +31,7 @@ func aocMultiplierThree(s []int) (int, error) {
 			}
 		}
 	}
-	return -1, errors.New("Error: no two distinct number have a sum of 2020 in the provided slice")
+	return -1, errors.New("Error: no three distinct number have a sum of 2020 in the provided slice")
 }
 
 func main() {
