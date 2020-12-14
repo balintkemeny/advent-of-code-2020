@@ -30,23 +30,19 @@ func replaceX(in string) []string {
 	rsO1 := []rune(o1)
 	rsO2 := []rune(o2)
 	var result []string
-	var foundX bool
 	for i, r := range rsI {
 		if r == 'X' {
-			foundX = true
 			rsO1[i] = '0'
 			rsO2[i] = '1'
 			outSlice1 := replaceX(string(rsO1))
 			outSlice2 := replaceX(string(rsO2))
 			result = append(result, outSlice1...)
 			result = append(result, outSlice2...)
-			break
+			return result
 		}
 	}
 
-	if !foundX {
-		result = append(result, in)
-	}
+	result = append(result, in)
 	return result
 }
 
