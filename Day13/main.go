@@ -7,6 +7,7 @@ import (
 	"log"
 	"os"
 	"strconv"
+	"time"
 )
 
 func findMinIndexAndValue(input []int) (int, int) {
@@ -125,6 +126,7 @@ func main() {
 	*/
 
 	// LET'S BRUTEFORCE THE CRAP OUT OF THIS
+	start := time.Now()
 	var sol, jump uint64 = 0, 1
 	for i := range busIDs {
 		for (sol+uint64(busOffsets[i]))%uint64(busIDs[i]) != 0 {
@@ -132,5 +134,7 @@ func main() {
 		}
 		jump *= uint64(busIDs[i])
 	}
+	elapsed := time.Since(start)
 	fmt.Println(sol)
+	fmt.Printf("TIME: %s\n", elapsed)
 }
